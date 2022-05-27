@@ -27,7 +27,7 @@ const Login = () => {
                     style={{width: 400, background: 'rgba(0, 0, 0, 0.07)'}}
                     container
                     alignItems="center"
-                    direction="colimn"
+                    direction="column"
                     justifyContent="center"
                 >
                     <Box p={5}>
