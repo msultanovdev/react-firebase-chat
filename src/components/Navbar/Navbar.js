@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useContext} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -7,9 +7,12 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 import { LOGIN_ROUTE } from '../utils/consts';
+import {useAuthState} from 'react-firebase-hooks/auth';
+import { Context } from '../..';
 
 const Navbar = () => {
-  const user = true;
+  const {auth} = useContext(Context);
+  const [user] = useAuthState(auth);
 
   return (
     <div>
@@ -25,11 +28,15 @@ const Navbar = () => {
                 >
                 </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    Messanger
+                    {
+                        user ?
+                        user.displayName
+                        : 'Messanger'
+                    }
                 </Typography>
                 {   user ?
 
-                    <Button color="inherit" variant="outlined">
+                    <Button onClick={() => auth.signOut()} color="inherit" variant="outlined">
                         Sign out
                     </Button>  
                     
