@@ -31,7 +31,7 @@ const Login = () => {
                     justifyContent="center"
                 >
                     <Box p={5}>
-                        <Button onClick={login} variant="outlined">Log in with google</Button>
+                        <Button onClick={login} variant="outlined">Login with google</Button>
                     </Box>
                 </Grid>
             </Grid>
